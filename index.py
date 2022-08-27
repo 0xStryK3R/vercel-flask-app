@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+from flask import request
 
 app = Flask(__name__)
 
@@ -23,6 +24,10 @@ def portfolio():
 def contact():
     return 'Contact Page Route'
 
+@app.route('/ip')
+def hello_world():
+    ip_addr = request.remote_addr
+    return '<h1> Your IP address is:' + ip_addr
     
 @app.route('/api')
 def api():
