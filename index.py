@@ -1,5 +1,5 @@
 from flask import Flask
-
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -23,9 +23,9 @@ def portfolio():
 def contact():
     return 'Contact Page Route'
 
-
+    
 @app.route('/api')
 def api():
     with open('data.json', mode='r') as my_file:
         text = my_file.read()
-        return text
+        return jsonify(text)
